@@ -1,0 +1,105 @@
+文件保存数据的缺点：
+1.文件安全性
+文件丢失，导致数据丢失。断电时未保存数据，导致数据丢失。数据损坏
+2.不利于数据的管理和查询
+很多数据在一起去查询数据。
+3.不利于海量数据查询
+海量数据：在短时间在网上查数据
+4.文件在程序中控制不方便
+
+
+数据库的存储介质：
+1.磁盘
+2.内存
+适合场景：临时数据的保存，
+缺点：带电存储，
+优点：存取速度快
+
+数据库的重要性：
+IT必备
+
+
+主流数据库（这都是关系型数据库）：
+1.SQLServer  微软  
+2.Oracle  甲骨文  适合中大型公司， 稳定 安全  并发性(同时可以给很多用户提供服务)能不好，不如MySQL
+3.MySQL  甲骨文  并发性好 ，不复杂的业务比较适合
+4.PostgreSQL：  
+5.SQLite：轻量级数据库，开源
+6.H2：用java写的数据库，是一个类库，是一个内存数据库，要镶嵌在程序中使用。可以预定义数据。控制力强，简单
+
+MYSQL默认端口：3306
+
+MySQL  -u root -h  127.0.0.1
+
+mysql  --user=localhost  -p
+
+-u :user
+
+退出 MYSQL   ：quit  
+
+mysql -u root -h 127.0.0.1 -p  查看外部ip
+
+MYSQL :
+1.是一个分层的结构
+
+
+show database；   显示所有的数据库
+
+create database 加表名   创建数据库
+刚刚创建的数据库，是一个空数据库。可以用show   tables；查看数据库里的表
+
+use 表名   使用表
+
+id为int型便于查找，便于索引
+mysql  create  table student(直接换行
+Id  int,
+name   varchar(10),
+gender  varchar(6)
+);
+
+select *from student；  查看student里的所有数据
+insert into student（Id，name，gender）values(1,'zhangsan','male');  插入一条信息
+
+MYSQL架构
+
+cilent  
+
+connection  pool
+
+optionizer   优化器优化 ，节省资源
+
+pluggable  storage Engine  可插拔式的存储引擎   可以在硬盘和内存上存储
+MyISAM  InnoDB（行级锁）   Momery
+
+file System  文件系统
+logs and 
+
+show  engines;   查看所有的存储引擎
+
+show  engines  /G：按行显示
+
+transaction  事物
+row-level locking 行级锁
+
+行级锁
+表级锁
+
+
+BLACKHOlE  黑洞
+dev/null  空
+它会自己写日志，可以再日志里显示之前写的信息
+
+ci  :忽略大小写
+
+show  create database student ；查看student如何创建出来的
+
+/*！40100      */这个数据库在4.1之后的版本可用
+
+collate ：校验规则
+
+UTF-8   一到四个字节   中文3个字节
+
+
+
+
+

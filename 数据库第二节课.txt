@@ -1,0 +1,181 @@
+字符集和校验规则
+
+use + 表名 ：切换表
+
+ci：case ignore   忽略大小写
+小写在前，大写在后。
+
+
+collate：校验规则
+
+bin：区分大小写
+大写在前，小写在后
+
+MySQL是通过ASCII表排序字符的
+
+
+select  *  from  表名  order by name;  把表里的数据按ASCII值排序。
+
+
+-A :
+不加-A会把所有的信息加载出来，所以会让加载数据时会比较慢。
+
+variables：变量
+
+show variables  like  
+
+like：模糊查询
+
+create database  表名    ：创建之后默认的字符集是latin1
+
+查看所以的字符集：
+
+
+alter database 表名：修改数据库
+
+
+DDL：数据定义语言 :  drop
+DML：数据 语言
+DQL：数据 语言
+DCL：
+
+
+数据库备份：防止意外时间的发生时，系统还可以正常使用
+
+-B：
+
+>:  重定向
+
+
+一行里插入很多的数据，比多行插入数据的效率高
+
+show possesslist：查看数据库的进程表
+kill + 进程号 ：杀死进程
+
+为啥在存储引擎上
+可插拔式
+
+表的操作
+
+
+有Id： 查询效率高
+comment ：注释
+
+md5：单词加密，无法返回
+在 前台：浏览器，就把密码转换为md5了，比较安全。
+
+
+MySQL默认数据库：inoDB
+
+engine  MyISAM：
+
+show  create table 
+
+
+进入Linux或MAC系统的数据库：   cd  /usr/lpocal/mysql
+
+创建一个表会有是哪个部分：
+.fim:   表结构
+.MYD：表数据
+.MYI：表索引
+
+desc  user：查看表结构
+可以为空：null  ，insert时不会报错
+如果不为空，default一定要有内容。
+MySQL默认允许为空
+
+
+
+修改表：
+
+ALTER TABLE  tablename ADD (column datatype [DEFAULT expr][,column datatype]...);    添加列
+ALTER TABLE  tablename MODIfy (column datatype [DEFAULT expr][,column datatype]...);   修改列
+ALTER TABLE  tablename DROP (column);   删除列
+
+
+alter table  users  add  iamge_path  comment '图片地址’
+
+alter table users  modify  name varchar(5)    修改类型的
+
+alter table   modify时会锁表，会导致表只能读，不能写
+
+只读不能写，，乐观锁
+
+
+
+修改列明   change
+
+show table 表名  删除表
+
+临时表：默认存储在内存里 （可以自己创建，也可以MySQL创建）
+
+查询时，可能会涉及到很大数据量的查询，可能会创建临时表
+
+
+
+数据类型
+
+bool会默认转为tinyint类型
+
+MySQL会自增，不用自己设置Id。为了防止溢出，可以赢bigint
+
+float（m, d）:m 总长度    d：小数点后边的长度
+
+float：浮点数：小数点不确定位置
+decimal  定点数：小水单位子是确定的
+
+时间戳：1970,1,1  00：00开始的
+
+truncate table 表名：把表清空
+
+
+bit  展示时是以ASCII展示的
+显示方法如下：
+
+select bin(num)  from  表名：以二进制展示内容
+
+select  num+0 from表名：以十进制展示
+
+otc  八进制   
+htc   十六进制
+
+小数类型
+
+课件有错，下面warning会直接报错
+
+
+float类型
+
+
+IEEE：规定了浮点数如何存储
+
+decimal  
+不会有精度损失，但float会有精度损失
+因为，他把她存成了字符串。所以精度没有损失。
+
+dec
+
+
+
+char：
+如何修改表的默认字符
+
+varchar:
+实际长度不是65535
+
+
+下面的错的：
+只需要一到两个字节。
+1-128：一个字节
+超过128：两个字节
+
+
+
+
+检索效率，
+字符串拼接效率（按所有元素里最长字节拼接）
+
+
+
+2018 12 4  结尾
+

@@ -1,0 +1,123 @@
+MYD表数据
+MYI表索引
+frm  表结构
+
+第三节课
+
+表的约束
+
+1.空属性  null （空）not null（不为空）
+但是在实际开发时尽量不要为空，因为为空无法参与运算
+
+
+
+5.2
+
+5.4zerofill
+
+5.5主键
+是唯一约束该数据里面的数据，不能重复，不能为空
+
+506自增长
+show create  table  表名
+
+5.7唯一键  
+
+一张表中有往往有很多字段需要唯一性，数据不能重复，但是一张表中只能有一个主键：唯一键就可以解决表中有
+多个字段需要唯一性约束的问题。
+唯一键的本质和主键差不多，唯一键允许为空，而且可以多个为空，空字段不做唯一性比较。
+
+
+5.9外键
+外键用于定义主表和从表之间的关系：外键约束主要定义在从表上，主表则必须是有主键约束或unique约束。当
+定义外键后，要求外键列数据必须在主表的主键列存在或为null。
+
+要求外键列数据必须在主表的主键列存在或为null。：和数据库有关系，目的是为了加快查询速度
+
+
+
+
+语法：
+foreign key (字段名) references 主表(列)
+
+MUL   外键
+child row  子表
+
+
+
+
+customer_id int primary key  auto_increment auto_increment comment '客户编号',
+
+
+
+第六节
+
+
+MYSQL返回的结果
+0  没有做任何操作
+1  返回正常结果
+2  返回异常结果
+
+
+替换会把原来的信息都替换了
+
+
+
+
+
+-- 主键 或者 唯?一键 没有冲突，则直接插?入；
+-- 主键 或者 唯?一键 如果冲突，则删除后再插?入
+REPLACE INTO students (sn, name) VALUES (20001, '曹阿瞒');
+Query OK, 2 rows affected (0.00 sec)
+-- 1 row affected: 表中没有冲突数据，数据被插?入
+-- 2 row affected: 表中有冲突数据，删除后重新插?入
+
+select now  显示当前的时间
+ select *from 表名   查询所有的信息
+
+
+
+SELECT id, name, yuwen + shuxue + yingyu  as total FROM exam_result;
+as total：把yuwen + shuxue + yingyu名字改为了total
+
+
+
+
+
+<=>和=的区别？
+IN (option, ...) 如果是 option 中的任意?一个，返回 TRUE(1)
+option是一个or的关系
+
+6.2.2.1 英语不不及格的同学及英语成绩 ( < 60 )
+select name，yingyu from stu  where yingyu<60
+6.2.2.2 语?文成绩在 [80, 90] 分的同学及语?文成绩
+select  name,yuwen from stu where between 80 and 90;
+6.2.2.3 数学成绩是 58 或者 59 或者 98 或者 99 分的同学及数学成绩
+select name ,shuxue from stu where shuxue =58 or shuxue= 59 orshuxue=98 or shue=99;
+select name ,shuxue from stu where shuxue in (58,59,98,99);
+6.2.2.4 姓孙的同学 及 孙某同学
+select  name from stu where name like '孙%'  or name  like '孙_'
+6.2.2.5 语?文成绩好于英语成绩的同学
+select name ,yuwen,yingyu from stu yuwen>yingyu;
+6.2.2.6 总分在 200 分以下的同学
+select执行时会先解析后边的条件语句，然后才去执行前边的select后边的语句
+select name ,yuwen+shuxue+yinyu as total  from stu where yuwen+shuxue+yingyu>200; 
+
+不是用 not like
+
+排序：
+1.字符比较ASCII码
+2.数字比较大小
+
+limit 在数据库里默认从0开始
+
+SELECT ... FROM table_name [WHERE ...] [ORDER BY ...] LIMIT n OFFSET s;
+
+limit没有优化的意义
+
+
+
+低级删除：delete
+高级删除：TRUNCATE
+
+
